@@ -1,21 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_football_app/utils/network/api_helper.dart';
-import 'package:flutter_football_app/utils/strings/api_strings.dart';
+import 'package:flutter_football_app/utils/network/network_module.dart';
+import 'package:injectable/injectable.dart';
 
-class ApiHelperImpl extends ApiHelper {
-  final Dio dio;
-
-  ApiHelperImpl({
-    required this.dio,
-  }) {
-    initDio();
-  }
-
-  Dio initDio() {
-    dio.options.baseUrl = ApiStrings.baseUrl;
-    return dio;
-  }
-
+@LazySingleton(as: ApiHelper)
+class ApiHelperImpl extends NetworkModule implements ApiHelper {
   @override
   Future<Map<String, dynamic>> get({
     required String url,
