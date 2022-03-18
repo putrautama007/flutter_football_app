@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_football_app/bloc/list_competition/list_competition_bloc.dart';
-import 'package:flutter_football_app/bloc/list_competition/list_competition_state.dart';
-import 'package:flutter_football_app/widget/card/competition_card.dart';
-import 'package:flutter_football_app/widget/loading_indicator/app_loading_indicator.dart';
+import 'package:flutter_football_app/presentation/bloc/list_competition/list_competition_bloc.dart';
+import 'package:flutter_football_app/presentation/bloc/list_competition/list_competition_state.dart';
+import 'package:flutter_football_app/presentation/widget/card/competition_card.dart';
+import 'package:flutter_football_app/presentation/widget/loading_indicator/app_loading_indicator.dart';
 
 class ListCompetitionScreen extends StatelessWidget {
   const ListCompetitionScreen({Key? key}) : super(key: key);

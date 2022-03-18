@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_football_app/data/model/list_competition_model.dart';
+import 'package:flutter_football_app/domain/entity/competition_entity.dart';
 
 abstract class ListCompetitionState extends Equatable {
   const ListCompetitionState();
@@ -24,7 +24,7 @@ class ListCompetitionError extends ListCompetitionState {
 }
 
 class ListCompetitionHasData extends ListCompetitionState {
-  final List<Competition> result;
+  final List<CompetitionEntity> result;
 
   const ListCompetitionHasData(this.result);
 

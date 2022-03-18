@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_football_app/bloc/list_competition/list_competition_bloc.dart';
-import 'package:flutter_football_app/bloc/list_competition/list_competition_event.dart';
+import 'package:flutter_football_app/presentation/bloc/list_competition/list_competition_bloc.dart';
+import 'package:flutter_football_app/presentation/bloc/list_competition/list_competition_event.dart';
+import 'package:flutter_football_app/presentation/ui/list_competition_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'di/locator.dart' as di;
-import 'ui/list_competition_screen.dart';
 
 void main() {
   di.initDependency();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (_) => ListCompetitionBloc(
-              footballService: di.locator(),
+              getListCompetitionUseCase: di.locator(),
             )..add(FetchListCompetitionData()),
           ),
         ],

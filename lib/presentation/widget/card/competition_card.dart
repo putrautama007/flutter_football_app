@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_football_app/data/model/list_competition_model.dart';
+import 'package:flutter_football_app/domain/entity/competition_entity.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CompetitionCard extends StatelessWidget {
-  final Competition competition;
+  final CompetitionEntity competition;
   final VoidCallback onTap;
 
   const CompetitionCard({
@@ -39,7 +39,7 @@ class CompetitionCard extends StatelessWidget {
                   top: Radius.circular(15.0),
                 ),
                 child: SvgPicture.network(
-                  competition.area!.ensignUrl!,
+                  competition.area.ensignUrl,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -53,11 +53,11 @@ class CompetitionCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Text(
-                    competition.name!,
+                    competition.name,
                   ),
                 ),
                 Text(
-                  competition.area!.name!,
+                  competition.area.name,
                 ),
               ],
             ),

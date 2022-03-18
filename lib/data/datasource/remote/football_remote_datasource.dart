@@ -2,10 +2,10 @@ import 'package:flutter_football_app/data/model/list_competition_model.dart';
 import 'package:flutter_football_app/utils/network/api_helper.dart';
 import 'package:flutter_football_app/utils/strings/api_strings.dart';
 
-class FootballService {
+class FootballRemoteDataSource {
   final ApiHelper apiHelper;
 
-  FootballService({
+  FootballRemoteDataSource({
     required this.apiHelper,
   });
 
