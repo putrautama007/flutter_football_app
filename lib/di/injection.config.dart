@@ -22,7 +22,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final networkModule = _$NetworkModule();
   gh.lazySingleton<_i3.ApiHelper>(() => _i4.ApiHelperImpl());
   gh.lazySingleton<_i5.Dio>(() => networkModule.dio);
-  gh.factory<_i6.FootballService>(
+  gh.lazySingleton<_i6.FootballService>(
       () => _i6.FootballService(apiHelper: get<_i3.ApiHelper>()));
   return get;
 }

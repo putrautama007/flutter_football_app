@@ -3,7 +3,7 @@ import 'package:flutter_football_app/utils/network/api_helper.dart';
 import 'package:flutter_football_app/utils/strings/api_strings.dart';
 import 'package:injectable/injectable.dart';
 
-@injectable
+@lazySingleton
 class FootballService {
   final ApiHelper apiHelper;
 
@@ -13,7 +13,7 @@ class FootballService {
 
   Future<ListCompetitionModel> getListCompetition() async {
     try {
-      final result = await apiHelper.get(url: "${ApiStrings.baseUrl}${ApiStrings.listCompetition}");
+      final result = await apiHelper.get(url: ApiStrings.listCompetition);
       return ListCompetitionModel.fromJson(result);
     } catch (_) {
       rethrow;
