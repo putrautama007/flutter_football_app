@@ -1,15 +1,15 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_football_app/bloc/list_competition/list_competition_bloc.dart';
 import 'package:flutter_football_app/bloc/list_competition/list_competition_event.dart';
 import 'package:flutter_football_app/data/datasource/remote/football_service.dart';
-import 'package:flutter_football_app/utils/network/api_helper_impl.dart';
+import 'package:flutter_football_app/di/module_container.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'ui/list_competition_screen.dart';
 
 void main() {
+  ModuleContainer().initialise();
   runApp(const MyApp());
 }
 
@@ -24,11 +24,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (_) => ListCompetitionBloc(
-              footballService: FootballService(
-                apiHelper: ApiHelperImpl(
-                  dio: Dio(),
-                ),
-              ),
+              footballService: ModuleContainer.injector.get<FootballService>(),
             )..add(FetchListCompetitionData()),
           ),
         ],
